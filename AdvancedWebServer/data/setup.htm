@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // recebe o json
+        $.getJSON("dados",function(dados){
+          // exibe as informações recebidas por json
+          $("#nome").val(dados["esp_nome"]);
+          $("#senha").val(dados["esp_senha"]);
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <form action="/config" method="POST">
+      <p>SSID:<input type="textbox" id="nome" name="novo_nome"></input></p>
+      <p>Senha:<input type="textbox" id="senha" name="novo_senha"></input></p>
+      <input type="submit">Enviar</input>
+    </form>
+  </body>
+</html>

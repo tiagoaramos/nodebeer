@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <!-- aqui estou puxando o jquery do google, o ideal seria puxar da rede local -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // recebe o json
+        $.getJSON("dados",function(dados){
+          // exibe as informações recebidas por json
+          $("#nome").text(dados["esp_nome"]);
+          $("#led_status").text(dados["led_status"]);
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <h1>Índice</h1>
+    <p>Nome do ESP8266:&nbsp;<span id="nome">NOME</span></p>
+    <p>Estado do led D3:&nbsp;<span id="led_status">ESTADO</span></p>
+    <a href="/setup">Configurar</a>
+  </body>
+</html>
